@@ -1,15 +1,15 @@
 "use client";
 
 import { useState } from "react";
-import Preloader from "@/components/Preloader";
-import Navbar from "@/components/Navbar";
-import SequenceScroll from "@/components/SequenceScroll";
-import AboutSection from "@/components/AboutSection";
-import BentoCards from "@/components/BentoCards";
-import StatsSection from "@/components/StatsSection";
-import TestimonialSection from "@/components/TestimonialSection";
-import CtaSection from "@/components/CtaSection";
-import Footer from "@/components/Footer";
+import Preloader from "@/temp-components/Preloader";
+import Navbar from "@/temp-components/Navbar";
+import SequenceScroll from "@/temp-components/SequenceScroll";
+import AboutSection from "@/temp-components/AboutSection";
+import BentoCards from "@/temp-components/BentoCards";
+import StatsSection from "@/temp-components/StatsSection";
+import TestimonialSection from "@/temp-components/TestimonialSection";
+import CtaSection from "@/temp-components/CtaSection";
+import Footer from "@/temp-components/Footer";
 
 export default function Home() {
   const [preloadedImages, setPreloadedImages] = useState<HTMLImageElement[] | null>(null);
