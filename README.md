@@ -4,7 +4,7 @@ A scroll-driven storytelling website for a fictional premium dairy brand, built 
 
 **Video Demo:** _..._
 **Live Demo:** _..._
-**GitHub Repo:** _(https://github.com/itzfallenkunz-ctrl/gf.git)_
+**GitHub Repo:** _https://github.com/itzfallenkunz-ctrl/gf.git_
 
 #### CS50 Final Project
 This is my final project for **CS50x**, by **Muhammad Fadhil Ganjar Aghisni**, **Bogor, 2026**.
