@@ -71,20 +71,19 @@ export default function TestimonialSection() {
       x: 0,
       opacity: 1,
       transition: {
-        x: { type: "spring", stiffness: 100, damping: 15 },
-        opacity: { duration: 0.5 }
+        x: { type: "spring" as const, stiffness: 100, damping: 15 },
       }
     },
     exit: (dir: number) => ({
       x: dir > 0 ? -100 : 100,
       opacity: 0,
       transition: {
-        x: { type: "spring", stiffness: 100, damping: 15 },
+        x: { type: "spring" as const, stiffness: 100, damping: 15 },
         opacity: { duration: 0.3 }
       }
     })
   };
-
+  
   return (
     <section 
       className="relative min-h-[85vh] flex flex-col justify-center px-6 py-28 md:px-24 bg-white z-10 border-b border-[#C8E1F5]/30 overflow-hidden"

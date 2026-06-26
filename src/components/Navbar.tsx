@@ -51,25 +51,25 @@ export default function Navbar() {
   };
 
   const menuVariants = {
-    initial: {
-      scaleY: 0,
+  initial: {
+    scaleY: 0,
+  },
+  animate: {
+    scaleY: 1,
+    transition: {
+      duration: 0.75,
+      ease: [0.76, 0, 0.24, 1],
     },
-    animate: {
-      scaleY: 1,
-      transition: {
-        duration: 0.75,
-        ease: [0.76, 0, 0.24, 1],
-      },
+  },
+  exit: {
+    scaleY: 0,
+    transition: {
+      duration: 0.75,
+      delay: 0.1,
+      ease: [0.76, 0, 0.24, 1],
     },
-    exit: {
-      scaleY: 0,
-      transition: {
-        duration: 0.75,
-        delay: 0.1,
-        ease: [0.76, 0, 0.24, 1],
-      },
-    },
-  };
+  },
+} as const;
 
   const containerVariants = {
     initial: {
@@ -97,7 +97,7 @@ export default function Navbar() {
       rotate: 0,
       transition: {
         duration: 0.5,
-        ease: [0.215, 0.61, 0.355, 1],
+       ease: [0.215, 0.61, 0.355, 1] as const,
       },
     },
     exit: {
