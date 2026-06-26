@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import LenisProvider from "@/temp-components/LenisProvider";
+import LenisProvider from "@/components/LenisProvider";
 
 export const metadata: Metadata = {
   title: "Greenfields — 100% Fresh Milk, Naturally Full Cream",
