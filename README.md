@@ -133,7 +133,7 @@ I personally orchestrated the overall production workflow, which included concep
 ## 👤 Author
 
 **Muhammad Fadhil Ganjar Aghisni**
-[CS50 username: Shenalchemist / GitHub:https://github.com/itzfallenkunz-ctrl / portfolio: -]
+[CS50 username: Fadhil_learning / GitHub:https://github.com/itzfallenkunz-ctrl / portfolio: -]
 
 ## 📄 License
 
