@@ -119,9 +119,6 @@ npm run lint    # ESLint
 ```
 
 ## 🤖 Use of AI Tools
-
-> **Fill this section in honestly before submitting.** CS50's academic honesty policy permits AI assistance on the final project, but requires that you disclose it and that "the essence of the work must still be your own."
-
 During development, I used Gemini, Claude, and Ezgif to:
 
 Gemini: Generate assets, including product photos via Google Whisk and animation videos via Google Flow.
