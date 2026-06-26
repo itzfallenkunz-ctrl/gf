@@ -18,7 +18,7 @@ export default function Footer() {
               We manage everything from grass to glass. Our commitment to single-source dairy farming guarantees milk of exceptional quality and freshness.
             </p>
             <span className="text-[10px] text-[#5D8EB9]/60 font-mono mt-6 block">
-              -6.5944° S, 106.7892° E • Bogor, Wast Java, Indonesia
+              -6.5944° S, 106.7892° E • Bogor, West Java, Indonesia
             </span>
           </div>
 

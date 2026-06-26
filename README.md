@@ -3,7 +3,7 @@
 A scroll-driven storytelling website for a fictional premium dairy brand, built around a custom canvas-based image-sequence renderer instead of a video file — giving full control over playback, sharpness, and scroll-sync without the bandwidth cost or stutter of `<video>` scrubbing.
 
 **Video Demo:** _..._
-**Live Demo:** _..._
+**Live Demo:** _https://gf-fc81zptei-kazuisme.vercel.app/_
 **GitHub Repo:** _https://github.com/itzfallenkunz-ctrl/gf.git_
 
 #### CS50 Final Project
@@ -37,8 +37,8 @@ Everything below the hero (about, product range, stats, testimonials, CTA, foote
 
 | Layer | Choice | Why |
 |---|---|---|
-| Framework | Next.js 16 (App Router) | File-based routing, React Server Components where it matters, zero-config builds |
-| UI library | React 19 | `use client` boundary is used deliberately — every component that touches scroll position, canvas, or browser APIs is client-rendered |
+| Framework | Next.js 14 (App Router) | File-based routing, React Server Components where it matters, zero-config builds |
+| UI library | React 18 | `use client` boundary is used deliberately — every component that touches scroll position, canvas, or browser APIs is client-rendered |
 | Language | TypeScript | Props for every component are typed; no `any` outside one unavoidable `window.lenis` escape hatch |
 | Styling | Tailwind CSS v4 | Utility-first, no separate CSS files to keep in sync with markup |
 | Animation | Framer Motion | `useScroll`, `useTransform`, `useMotionValueEvent`, `useInView` — used for *scroll-derived* state, not just `animate()` presets |
@@ -93,7 +93,7 @@ This project is deliberately scoped as a frontend rendering exercise. Honest lim
 - [ ] **No real contact/lead capture** — the CTA button doesn't submit anywhere yet.
 - [ ] **No automated tests** — would add component tests for `SequenceScroll`'s frame-index math and `Preloader`'s load-completion logic, since those are the parts with actual conditional logic.
 - [ ] **No accessibility audit yet** — canvas-based content needs an `aria-label`/fallback description for screen readers; reduced-motion users currently still get the full animation set.
-- [ ] **Typo:** Footer coordinates currently read "Wast Java" instead of "West Java".
+- [ ] **Next.js 14.2.3 has a known security advisory** — the project currently pins this version; upgrading to the latest 14.x patch is a straightforward next step.
 
 ## 🚀 Getting Started
 
@@ -126,15 +126,15 @@ During development, I used Gemini, Claude, and Ezgif to:
 
 Gemini: Generate assets, including product photos via Google Whisk and animation videos via Google Flow.
 Ezgif: Convert video assets into sequence of PNG frames at 30 FPS for the scroll-animation.
-Claude: Debug code, fix typos, refine project structure, and map out the project's logic for the README mindmap.
+Claude: Diagnosed and fixed build-breaking errors (missing dependencies in `package.json`, TypeScript strict-mode typing errors, JSX/syntax errors), debugged code, fixed typos, refined project structure, and mapped out the project's logic for the README mindmap.
 
 I personally orchestrated the overall production workflow, which included conceptualizing the asset pipeline from generating animations via Google Flow and product photos via Google Whisk, down to manually processing the videos into 30 FPS PNG sequences using Ezgif. I also oversaw the entire frontend assembly, directed the debugging and code refinement process, and mapped out the project's logic and architecture. I can walk through and explain any part of this codebase.
 
 ## 👤 Author
 
 **Muhammad Fadhil Ganjar Aghisni**
-[CS50 username: Shenalchemist / GitHub:https://github.com/itzfallenkunz-ctrl / portfolio: -]
+[CS50 username: Fadhil_learning / GitHub: https://github.com/itzfallenkunz-ctrl / portfolio: -]
 
 ## 📄 License
 
-MIT — see [ ](./LICENSE).
+MIT — see [LICENSE](./LICENSE).
