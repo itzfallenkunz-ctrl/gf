@@ -15,7 +15,7 @@ This is my final project for **CS50x**, by **Muhammad Fadhil Ganjar Aghisni**, *
 
 Most "scroll-tells-a-story" landing pages either embed a heavy `.mp4` and scrub it with `currentTime`, or rely on a SaaS animation plugin. Both have real costs: video scrubbing is choppy on Safari/iOS, and most scroll-animation libraries don't let you touch individual frames.
 
-This project solves that by treating the hero section as a **sequence of 192 still frames**, drawn to an HTML `<canvas>` and advanced frame-by-frame as the user scrolls — the same technique Apple uses on its product pages, rebuilt from scratch in React.
+This project solves that by treating the hero section as a **sequence of 240 still frames**, drawn to an HTML `<canvas>` and advanced frame-by-frame as the user scrolls — the same technique Apple uses on its product pages, rebuilt from scratch in React.
 
 Everything below the hero (about, product range, stats, testimonials, CTA, footer) is a normal marketing site, but each section has its own scroll-triggered motion, built to feel cohesive with the hero rather than bolted on.
 
@@ -23,7 +23,7 @@ Everything below the hero (about, product range, stats, testimonials, CTA, foote
 
 | Section | File | What's actually happening |
 |---|---|---|
-| Preloader | `Preloader.tsx` | Loads all 192 frames into memory **before** anything renders, tracking real load progress (not a fake timer) via per-image `onload`/`onerror`, animated as a filling milk-droplet SVG |
+| Preloader | `Preloader.tsx` | Loads all 240 frames into memory **before** anything renders, tracking real load progress (not a fake timer) via per-image `onload`/`onerror`, animated as a filling milk-droplet SVG |
 | Hero sequence | `SequenceScroll.tsx` | Maps scroll progress (0–1) to a frame index (0–191) using Framer Motion's `useScroll`/`useTransform`, draws the active frame to canvas with a "cover" crop, and samples a pixel from the frame to drive a smoothly-transitioning background color |
 | Smooth scroll | `LenisProvider.tsx` | Wraps the whole app in Lenis so scroll-linked animations stay buttery instead of jittering on trackpad/wheel input |
 | Story reveal | `AboutSection.tsx` | Splits a paragraph into individual characters and fades each one in based on its own slice of scroll progress — a per-character scrub, not a single fade |
