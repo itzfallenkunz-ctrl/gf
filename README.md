@@ -24,7 +24,7 @@ Everything below the hero (about, product range, stats, testimonials, CTA, foote
 | Section | File | What's actually happening |
 |---|---|---|
 | Preloader | `Preloader.tsx` | Loads all 240 frames into memory **before** anything renders, tracking real load progress (not a fake timer) via per-image `onload`/`onerror`, animated as a filling milk-droplet SVG |
-| Hero sequence | `SequenceScroll.tsx` | Maps scroll progress (0–1) to a frame index (0–139) using Framer Motion's `useScroll`/`useTransform`, draws the active frame to canvas with a "cover" crop, and samples a pixel from the frame to drive a smoothly-transitioning background color |
+| Hero sequence | `SequenceScroll.tsx` | Maps scroll progress (0–1) to a frame index (0–239) using Framer Motion's `useScroll`/`useTransform`, draws the active frame to canvas with a "cover" crop, and samples a pixel from the frame to drive a smoothly-transitioning background color |
 | Smooth scroll | `LenisProvider.tsx` | Wraps the whole app in Lenis so scroll-linked animations stay buttery instead of jittering on trackpad/wheel input |
 | Story reveal | `AboutSection.tsx` | Splits a paragraph into individual characters and fades each one in based on its own slice of scroll progress — a per-character scrub, not a single fade |
 | Product range | `BentoCards.tsx` | Bento-style grid, staggered `whileInView` reveal |
