@@ -45,12 +45,13 @@ export default function TestimonialSection() {
     }, 6000); // 6 seconds per slide
   };
 
-  useEffect(() => {
-    resetTimer();
-    return () => {
-      if (timerRef.current) clearInterval(timerRef.current);
-    };
-  }, [activeIndex]);
+useEffect(() => {
+  resetTimer();
+  return () => {
+    if (timerRef.current) clearInterval(timerRef.current);
+  };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+}, [activeIndex]);
 
   const handleNext = () => {
     setDirection(1);
@@ -123,7 +124,7 @@ export default function TestimonialSection() {
 
               {/* Bold Quote Text */}
               <blockquote className="text-xl md:text-3xl font-black text-[#1C4E80] tracking-tight leading-snug font-sans mb-8">
-                "{testimonials[activeIndex].quote}"
+              &ldquo;{testimonials[activeIndex].quote}&rdquo;
               </blockquote>
 
               {/* Author Details */}

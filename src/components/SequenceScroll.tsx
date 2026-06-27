@@ -18,8 +18,8 @@ export default function SequenceScroll({ images }: { images: HTMLImageElement[] 
     offset: ["start start", "end end"],
   });
 
-  // Map scroll progress to image frame indexes (0 to 191)
-  const frameIndex = useTransform(scrollYProgress, [0, 0.98], [0, 191]);
+  // Map scroll progress to image frame indexes (0 to last loaded frame)
+  const frameIndex = useTransform(scrollYProgress, [0, 0.98], [0, images.length - 1]);
 
   // Handle magnetic CTA positioning
   const [magneticPos, setMagneticPos] = useState({ x: 0, y: 0 });
@@ -112,8 +112,9 @@ export default function SequenceScroll({ images }: { images: HTMLImageElement[] 
     // Initial size trigger
     handleResize();
 
-    return () => window.removeEventListener("resize", handleResize);
-  }, [images, currentFrame]);
+   return () => window.removeEventListener("resize", handleResize);
+// eslint-disable-next-line react-hooks/exhaustive-deps
+}, [images, currentFrame]);
 
   return (
     <div ref={containerRef} className="relative h-[400vh] w-full" id="home">

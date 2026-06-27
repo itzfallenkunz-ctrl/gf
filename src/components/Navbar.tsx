@@ -234,7 +234,7 @@ export default function Navbar() {
                   Established Farms
                 </span>
                 <span className="text-xs text-[#1C4E80] font-mono">
-                  -6.5944° S, 106.7892° E • Bogor, Wast Java, Indonesia
+                  -6.5944° S, 106.7892° E • Bogor, West Java, Indonesia
                 </span>
               </div>
             </div>
