@@ -15,7 +15,7 @@ This is my final project for **CS50x**, by **Muhammad Fadhil Ganjar Aghisni**, *
 
 Most "scroll-tells-a-story" landing pages either embed a heavy `.mp4` and scrub it with `currentTime`, or rely on a SaaS animation plugin. Both have real costs: video scrubbing is choppy on Safari/iOS, and most scroll-animation libraries don't let you touch individual frames.
 
-This project solves that by treating the hero section as a **sequence of 240 still frames**, drawn to an HTML `<canvas>` and advanced frame-by-frame as the user scrolls — the same technique Apple uses on its product pages, rebuilt from scratch in React.
+This project solves that by treating the hero section as a **sequence of 240 still frames** (30 FPS), drawn to an HTML `<canvas>` and advanced frame-by-frame as the user scrolls — the same technique Apple uses on its product pages, rebuilt from scratch in React.
 
 Everything below the hero (about, product range, stats, testimonials, CTA, footer) is a normal marketing site, but each section has its own scroll-triggered motion, built to feel cohesive with the hero rather than bolted on.
 
@@ -44,6 +44,7 @@ Everything below the hero (about, product range, stats, testimonials, CTA, foote
 | Animation | Framer Motion | `useScroll`, `useTransform`, `useMotionValueEvent`, `useInView` — used for *scroll-derived* state, not just `animate()` presets |
 | Smooth scroll | Lenis | Normalizes scroll behavior across browsers so frame-stepping in the canvas stays in sync with the scrollbar |
 | Icons | Lucide React | Lightweight, tree-shakeable |
+| Linting | ESLint (`next/core-web-vitals`) | Catches accessibility and React Hook dependency issues before they ship |
 
 ## 📁 Project Structure
 
@@ -66,7 +67,7 @@ gf-main/
 │       ├── CtaSection.tsx
 │       └── Footer.tsx
 ├── public/
-│   ├── sequences/             # 192 JPEG frames (ezgif-frame-001.jpg … 192.jpg)
+│   ├── sequences/             # 240 JPEG frames at 30 FPS (ezgif-frame-001.jpg … 240.jpg)
 │   └── assets/                # Product/brand imagery
 └── package.json
 ```
@@ -84,6 +85,9 @@ Framer Motion's `useScroll` reads the native scrollbar position. Native wheel/tr
 
 **Why is there no backend?**
 This iteration is intentionally frontend-only to focus on the scroll-rendering engineering. The clearest next step (see Roadmap) is to make the testimonials, product range, and contact form dynamic via a real database instead of hardcoded arrays.
+
+**Why 30 FPS / 240 frames instead of the original 24 FPS / 192 frames?**
+The sequence was originally exported at 24 FPS (192 frames) but later re-exported at 30 FPS (240 frames) for a smoother hero scroll. The frame index mapping in `SequenceScroll.tsx` now derives its upper bound from `images.length` instead of a hardcoded number, so the sequence length can be changed again later without touching that logic.
 
 ## 🚧 Known Limitations & Roadmap
 
@@ -123,7 +127,7 @@ During development, I used Gemini, Claude, and Ezgif to:
 
 Gemini: Generate assets, including product photos via Google Whisk and animation videos via Google Flow.
 Ezgif: Convert video assets into sequence of PNG frames at 30 FPS for the scroll-animation.
-Claude: Diagnosed and fixed build-breaking errors (missing dependencies in `package.json`, TypeScript strict-mode typing errors, JSX/syntax errors), debugged code, fixed typos, refined project structure, and mapped out the project's logic for the README mindmap.
+Claude: Diagnosed and fixed build-breaking errors (missing dependencies in `package.json`, TypeScript strict-mode typing errors, JSX/syntax errors), fixed an ESLint configuration incompatible with Next.js 14 and resolved the resulting lint errors, fixed a frame-count mismatch between the preloader and the actual 30 FPS image sequence, debugged code, fixed typos, refined project structure, and mapped out the project's logic for the README mindmap.
 
 I personally orchestrated the overall production workflow, which included conceptualizing the asset pipeline from generating animations via Google Flow and product photos via Google Whisk, down to manually processing the videos into 30 FPS PNG sequences using Ezgif. I also oversaw the entire frontend assembly, directed the debugging and code refinement process, and mapped out the project's logic and architecture. I can walk through and explain any part of this codebase.
 
