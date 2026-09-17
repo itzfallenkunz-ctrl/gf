@@ -1,6 +1,6 @@
-# 🥛 Greenfields — Fresh Dairy Brand Experience
+# 🥛 Greenfields. Fresh Dairy Brand Experience
 
-A scroll-driven storytelling website for a fictional premium dairy brand, built around a custom canvas-based image-sequence renderer instead of a video file — giving full control over playback, sharpness, and scroll-sync without the bandwidth cost or stutter of `<video>` scrubbing.
+A scroll-driven storytelling website for a fictional premium dairy brand, built around a custom canvas-based image-sequence renderer instead of a video file giving full control over playback, sharpness, and scroll-sync without the bandwidth cost or stutter of `<video>` scrubbing.
 
 **Video Demo:** _..._
 **Live Demo:** _https://gf-fc81zptei-kazuisme.vercel.app/_
@@ -15,7 +15,7 @@ This is my final project for **CS50x**, by **Muhammad Fadhil Ganjar Aghisni**, *
 
 Most "scroll-tells-a-story" landing pages either embed a heavy `.mp4` and scrub it with `currentTime`, or rely on a SaaS animation plugin. Both have real costs: video scrubbing is choppy on Safari/iOS, and most scroll-animation libraries don't let you touch individual frames.
 
-This project solves that by treating the hero section as a **sequence of 240 still frames** (30 FPS), drawn to an HTML `<canvas>` and advanced frame-by-frame as the user scrolls — the same technique Apple uses on its product pages, rebuilt from scratch in React.
+This project solves that by treating the hero section as a **sequence of 240 still frames** (30 FPS), drawn to an HTML `<canvas>` and advanced frame-by-frame as the user scrolls the same technique Apple uses on its product pages, rebuilt from scratch in React.
 
 Everything below the hero (about, product range, stats, testimonials, CTA, footer) is a normal marketing site, but each section has its own scroll-triggered motion, built to feel cohesive with the hero rather than bolted on.
 
@@ -26,7 +26,7 @@ Everything below the hero (about, product range, stats, testimonials, CTA, foote
 | Preloader | `Preloader.tsx` | Loads all 240 frames into memory **before** anything renders, tracking real load progress (not a fake timer) via per-image `onload`/`onerror`, animated as a filling milk-droplet SVG |
 | Hero sequence | `SequenceScroll.tsx` | Maps scroll progress (0–1) to a frame index (0–239) using Framer Motion's `useScroll`/`useTransform`, draws the active frame to canvas with a "cover" crop, and samples a pixel from the frame to drive a smoothly-transitioning background color |
 | Smooth scroll | `LenisProvider.tsx` | Wraps the whole app in Lenis so scroll-linked animations stay buttery instead of jittering on trackpad/wheel input |
-| Story reveal | `AboutSection.tsx` | Splits a paragraph into individual characters and fades each one in based on its own slice of scroll progress — a per-character scrub, not a single fade |
+| Story reveal | `AboutSection.tsx` | Splits a paragraph into individual characters and fades each one in based on its own slice of scroll progress a per-character scrub, not a single fade |
 | Product range | `BentoCards.tsx` | Bento-style grid, staggered `whileInView` reveal |
 | Impact stats | `StatsSection.tsx` | Numbers count up from 0 only once they scroll into view, using a Framer Motion `motionValue` rather than a `setInterval` |
 | Testimonials | `TestimonialSection.tsx` | Auto-advancing carousel with manual prev/next override and direction-aware transitions |
@@ -41,7 +41,7 @@ Everything below the hero (about, product range, stats, testimonials, CTA, foote
 | UI library | React 18 | `use client` boundary is used deliberately — every component that touches scroll position, canvas, or browser APIs is client-rendered |
 | Language | TypeScript | Props for every component are typed; no `any` outside one unavoidable `window.lenis` escape hatch |
 | Styling | Tailwind CSS v4 | Utility-first, no separate CSS files to keep in sync with markup |
-| Animation | Framer Motion | `useScroll`, `useTransform`, `useMotionValueEvent`, `useInView` — used for *scroll-derived* state, not just `animate()` presets |
+| Animation | Framer Motion | `useScroll`, `useTransform`, `useMotionValueEvent`, `useInView` used for *scroll-derived* state, not just `animate()` presets |
 | Smooth scroll | Lenis | Normalizes scroll behavior across browsers so frame-stepping in the canvas stays in sync with the scrollbar |
 | Icons | Lucide React | Lightweight, tree-shakeable |
 | Linting | ESLint (`next/core-web-vitals`) | Catches accessibility and React Hook dependency issues before they ship |
@@ -95,8 +95,8 @@ This project is deliberately scoped as a frontend rendering exercise. Honest lim
 
 - [ ] **No backend/database** — testimonials, products, and stats are hardcoded arrays in each component. Next step: Next.js API routes + SQLite/Postgres so content is editable without redeploying.
 - [ ] **No real contact/lead capture** — the CTA button doesn't submit anywhere yet.
-- [ ] **No automated tests** — would add component tests for `SequenceScroll`'s frame-index math and `Preloader`'s load-completion logic, since those are the parts with actual conditional logic.
-- [ ] **No accessibility audit yet** — canvas-based content needs an `aria-label`/fallback description for screen readers; reduced-motion users currently still get the full animation set.
+- [ ] **No automated tests** would add component tests for `SequenceScroll`'s frame-index math and `Preloader`'s load-completion logic, since those are the parts with actual conditional logic.
+- [ ] **No accessibility audit yet** canvas-based content needs an `aria-label`/fallback description for screen readers; reduced-motion users currently still get the full animation set.
 - [ ] **Next.js 14.2.3 has a known security advisory** — the project currently pins this version; upgrading to the latest 14.x patch is a straightforward next step.
 
 ## 🚀 Getting Started
